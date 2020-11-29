@@ -16,6 +16,7 @@
 
     <div>
         <form asp-controller="Home" asp-action="SearchContact">
+            <i class="fa fa-search"></i>
             <input class="search-bar" type="text" name="SearchString" placeholder="Search for contact by name">
         </form>
     </div>
@@ -23,13 +24,13 @@
     <div class="list-group tr">
         @foreach (Contact contact in Model.Contacts)
         {
-            <div class="list-group-item">
-                    <form asp-controller="Home" asp-action="RemoveContact">
-                        <button class="btn delete-contact" name="contactID" value="@contact.ID"><i class="fa fa-trash"></i></button>
-                    </form>
-                    <div> @contact.fullName </div>
-                    <div class="contact-number"> @contact.phoneNumber </div>
-            </div>
+        <div class="list-group-item">
+            <form asp-controller="Home" asp-action="RemoveContact">
+                <button class="btn delete-contact" name="contactID" value="@contact.ID"><i class="fa fa-trash"></i></button>
+            </form>
+            <div> @contact.fullName </div>
+            <div class="contact-number"> <i class="fa fa-phone"></i> @contact.phoneNumber </div>
+        </div>
         }
     </div>
 </div>

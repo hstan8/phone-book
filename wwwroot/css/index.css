@@ -35,14 +35,33 @@
 	width: 100%;
 }
 
+.fa-search  {
+	color: #a6a6a6;
+	position: absolute;
+	padding-top: 6px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
 .search-bar  {
 	margin-bottom: 24px;
 	width : 100%;
+	border-radius: 20px;
+	padding-left: 40px;
+	border-width: 1px;
+}
+
+.search-bar:focus  {
+	outline-width: 0;
 }
 
 .delete-contact {
 	float: right;
 	background-color: #f44336;
+}
+
+.fa-phone  {
+    color: #a6a6a6;
 }
 
 .contact-number {
@@ -76,9 +95,10 @@
 	display:none;
 	position: fixed;
 	margin: auto;
-	top: 10%;
-	left: 38%;
-	border: 3px solid #f1f1f1;
+	top: 8%;
+	left: 42%;
+	border: 1px solid;
+	border-radius: 5px;
 }
 
 .pop-up-header	{

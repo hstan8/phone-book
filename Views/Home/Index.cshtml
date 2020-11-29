@@ -1,8 +1,59 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Phone Book App";
 }
+@model PhoneBook
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="app-container">
+    <div class="text-center tr">
+        <h1 class="app-name">Phone Book</h1>
+    </div>
+
+    <div class="text-left tr">
+        <button class="btn add-contact" onclick="toggleAddContact()">+ Add Contact</button>
+        <h1 class="contact-header">Contacts</h1>
+    </div>
+
+    <div>
+        <form asp-controller="Home" asp-action="SearchContact">
+            <input class="search-bar" type="text" name="SearchString" placeholder="Search for contact by name">
+        </form>
+    </div>
+
+    <div class="list-group tr">
+        @foreach (Contact contact in Model.Contacts)
+        {
+            <div class="list-group-item">
+                    <form asp-controller="Home" asp-action="RemoveContact">
+                        <button class="btn delete-contact" name="contactID" value="@contact.ID"><i class="fa fa-trash"></i></button>
+                    </form>
+                    <div> @contact.fullName </div>
+                    <div class="contact-number"> @contact.phoneNumber </div>
+            </div>
+        }
+    </div>
 </div>
+
+
+<div class="pop-up-background">
+
+</div>
+
+<div class="pop-up-container">
+    <h1 class="pop-up-header">New Contact</h1>
+    <button class="btn close-pop-up" onclick="toggleAddContact()"><i class="fa fa-close"></i></button>
+    <form asp-controller="Home" asp-action="AddContact">
+        <input type="text" class="pop-up-input" name="FirstName" placeholder="First Name">
+        <input type="text" class="pop-up-input" name="LastName" placeholder="Last Name">
+        <input type="text" class="pop-up-input" name="Number" placeholder="Number">
+        <button type="button" class="btn cancel-button" onclick="toggleAddContact()">Cancel</button>
+        <button type="submit" class="btn add-contact">Create</button>
+    </form>
+</div>
+
+<script>
+    function toggleAddContact() {
+        $(".pop-up-background").toggle();
+        $(".pop-up-container").toggle();
+    }
+</script>

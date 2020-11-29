@@ -1,0 +1,108 @@
+﻿.app-container	{
+	display: table;
+	width: 60%;
+	margin: auto;
+}
+
+.tr	{
+	display:table-row;
+}
+
+.app-name {
+	text-align: center;
+	color: #212121;
+	padding-bottom: 24px;
+	padding-top: 24px;
+	font-size: 30px;
+	display: inline-block;
+}
+
+.add-contact {
+	float:right;
+	background-color: #1E90FF;
+	color: #fff
+}
+
+.contact-header {
+	text-align: center; 
+	color: #212121; 
+	padding-bottom: 24px; 
+	font-size: 24px;
+	display: inline-block;
+}
+
+.list-group-item	{
+	width: 100%;
+}
+
+.search-bar  {
+	margin-bottom: 24px;
+	width : 100%;
+}
+
+.delete-contact {
+	float: right;
+	background-color: #f44336;
+}
+
+.contact-number {
+	color: #a6a6a6;
+	font-size: 15px;
+}
+
+.fa-trash  {
+    color: #fff;
+}
+
+.pop-up-background	{
+	display: none;
+	background-color: #d3d3d3;
+	opacity: 0.6;
+	position: fixed; 
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%; 
+	height: 100%; 
+	z-index: 2;
+}
+
+.pop-up-container	{
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+	z-index: 3;
+	display:none;
+	position: fixed;
+	margin: auto;
+	top: 10%;
+	left: 38%;
+	border: 3px solid #f1f1f1;
+}
+
+.pop-up-header	{
+	text-align: center; 
+	color: #212121; 
+	margin-bottom: 24px;
+	margin-left: 10px; 
+	font-size: 24px;
+	display: inline-block;
+}
+
+.pop-up-input	{
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+.close-pop-up {
+	float: right;
+	color: #d3d3d3;
+}
+
+.cancel-button {
+	float: right;
+	background-color: #d3d3d3;
+	margin-left: 10px;
+}

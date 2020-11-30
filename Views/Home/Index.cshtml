@@ -42,13 +42,16 @@
 
 <div class="pop-up-container">
     <h1 class="pop-up-header">New Contact</h1>
+    <hr />
     <button class="btn close-pop-up" onclick="toggleAddContact()"><i class="fa fa-close"></i></button>
-    <form asp-controller="Home" asp-action="AddContact">
-        <input type="text" class="pop-up-input" name="FirstName" placeholder="First Name">
+    <form asp-controller="Home" asp-action="AddContact" onsubmit="return validatePhoneNumber(event)">
+        <input type="text" class="pop-up-input" id="inputName" name="FirstName" placeholder="First Name">
         <input type="text" class="pop-up-input" name="LastName" placeholder="Last Name">
-        <input type="text" class="pop-up-input" name="Number" placeholder="Number">
+        <input type="text" class="pop-up-input" id="inputNumber" name="Number" placeholder="Number">
+        <div id="inputError" class="error-text">Invalid Name or Phone Number</div>
+        <hr />
         <button type="button" class="btn cancel-button" onclick="toggleAddContact()">Cancel</button>
-        <button type="submit" class="btn add-contact">Create</button>
+        <button type="submit" class="btn add-contact" >Create</button>
     </form>
 </div>
 
@@ -56,5 +59,21 @@
     function toggleAddContact() {
         $(".pop-up-background").toggle();
         $(".pop-up-container").toggle();
+    }
+
+    function validatePhoneNumber(event) {
+        $(".error-text").hide();
+        
+        var numbers = /^[0-9+-]+$/;
+        var number = $("#inputNumber").val();
+        var name = $("#inputName").val();
+        if (number.match(numbers) && name.length > 0)
+            return true;
+        else
+        {
+            $(".error-text").toggle();
+            return false;
+        }
+    
     }
 </script>
